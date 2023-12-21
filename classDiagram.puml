@@ -1,0 +1,67 @@
+@startuml
+class sortInsuranceByRisk.SortInsuranceItemsByRisk {
+- InsuranceManagementSystem insuranceSystem
++ void execute()
+}
+class addInsuranceObligation.AddInsuranceObligationCommand {
+- InsuranceManagementSystem insuranceSystem
++ void execute()
+}
+interface insuranceManagementSystem.Command {
+~ void execute()
+}
+class calculateCostObligation.CalculateCostCommand {
+- InsuranceManagementSystem insuranceSystem
++ void execute()
+}
+class displayAllInsuranceObligations.DisplayAllInsuranceObligationsCommand {
+- InsuranceManagementSystem insuranceSystem
++ void execute()
+}
+class invoke.Invoker {
+- Command command
++ void setCommand(Command)
++ void executeCommand()
+}
+class insuranceManagementSystem.InsuranceManagementSystem {
+- List<InsuranceObligation> obligations
++ void execute()
++ void addInsuranceObligation(InsuranceObligation)
++ void sortInsuranceItemsByRisk()
++ double calculateTotalCost()
++ List<InsuranceObligation> findObligationsInParameters(double,double,int,int)
++ void removeInsuranceObligation(int)
++ void displayAllInsuranceObligations()
++ void writeObligationsToFile(String)
++ void readObligationsFromFile(String)
++ void rewriteObligationsToFile(String)
++ List<InsuranceObligation> getObligations()
++ {static} void main(String[])
+}
+class findItemsByParameters.FindItemsByParameters {
+- InsuranceManagementSystem insuranceSystem
++ void execute()
+}
+class insuranceManagementSystem.InsuranceObligation {
+- String name
+- double cost
+- int riskLevel
++ String getName()
++ double getCost()
++ int getRiskLevel()
++ String toString()
+}
+class removeInsuranceObligation.RemoveInsuranceObligationCommand {
+- InsuranceManagementSystem insuranceSystem
++ void execute()
+}
+
+
+insuranceManagementSystem.Command <|.. sortInsuranceByRisk.SortInsuranceItemsByRisk
+insuranceManagementSystem.Command <|.. addInsuranceObligation.AddInsuranceObligationCommand
+insuranceManagementSystem.Command <|.. calculateCostObligation.CalculateCostCommand
+insuranceManagementSystem.Command <|.. displayAllInsuranceObligations.DisplayAllInsuranceObligationsCommand
+insuranceManagementSystem.Command <|.. insuranceManagementSystem.InsuranceManagementSystem
+insuranceManagementSystem.Command <|.. findItemsByParameters.FindItemsByParameters
+insuranceManagementSystem.Command <|.. removeInsuranceObligation.RemoveInsuranceObligationCommand
+@enduml

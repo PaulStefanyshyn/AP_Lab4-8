@@ -1,0 +1,332 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": true,
+    "cutInterfaceStructures": true,
+    "cutDataStructures": true,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "insuranceManagementSystem.InsuranceManagementSystem",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1049014452 { 
+   	label=insuranceManagementSystem
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   InsuranceManagementSystem1049014452[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InsuranceManagementSystem</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   obligations: List&lt;InsuranceObligation&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addInsuranceObligation(obligation: InsuranceObligation)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ calculateTotalCost(): double</TD></TR>
+<TR><TD ALIGN="LEFT" >+ displayAllInsuranceObligations()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ findObligationsInParameters(minCost: double, maxCost: double, minRisk: int, maxRisk: int): List&lt;InsuranceObligation&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readObligationsFromFile(fileName: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeInsuranceObligation(index: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ rewriteObligationsToFile(fileName: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ sortInsuranceItemsByRisk()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ writeObligationsToFile(fileName: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+InsuranceManagementSystemTest1049014452[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InsuranceManagementSystemTest</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   insuranceSystem: InsuranceManagementSystem [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># addInsuranceObligation()</TD></TR>
+<TR><TD ALIGN="LEFT" ># calculateTotalCost()</TD></TR>
+<TR><TD ALIGN="LEFT" ># findObligationsInParameters()</TD></TR>
+<TR><TD ALIGN="LEFT" ># readObligationsFromFile()</TD></TR>
+<TR><TD ALIGN="LEFT" ># removeInsuranceObligation()</TD></TR>
+<TR><TD ALIGN="LEFT" ># rewriteObligationsToFile()</TD></TR>
+<TR><TD ALIGN="LEFT" ># sortInsuranceItemsByRisk()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+InsuranceObligation1049014452[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InsuranceObligation</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   cost: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   riskLevel: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1183693704 { 
+   	label=invoke
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Invoker1183693704[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Invoker</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   command: Command [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ executeCommand()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1445770138 { 
+   	label=displayAllInsuranceObligations
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   DisplayAllInsuranceObligationsCommand1445770138[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)DisplayAllInsuranceObligationsCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   insuranceSystem: InsuranceManagementSystem [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2008285647 { 
+   	label=calculateCostObligation
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   CalculateCostCommand2008285647[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)CalculateCostCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   insuranceSystem: InsuranceManagementSystem [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_385374408 { 
+   	label=findItemsByParameters
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   FindItemsByParameters385374408[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)FindItemsByParameters</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   insuranceSystem: InsuranceManagementSystem [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_56999124 { 
+   	label=removeInsuranceObligation
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   RemoveInsuranceObligationCommand56999124[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)RemoveInsuranceObligationCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   insuranceSystem: InsuranceManagementSystem [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_59472489 { 
+   	label=addInsuranceObligation
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   AddInsuranceObligationCommand59472489[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)AddInsuranceObligationCommand</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   insuranceSystem: InsuranceManagementSystem [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_736068034 { 
+   	label=sortInsuranceByRisk
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   SortInsuranceItemsByRisk736068034[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)SortInsuranceItemsByRisk</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   insuranceSystem: InsuranceManagementSystem [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ execute()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+AddInsuranceObligationCommand59472489 -> InsuranceManagementSystem1049014452[label="insuranceSystem
+[0..1]"];
+CalculateCostCommand2008285647 -> InsuranceManagementSystem1049014452[label="insuranceSystem
+[0..1]"];
+DisplayAllInsuranceObligationsCommand1445770138 -> InsuranceManagementSystem1049014452[label="insuranceSystem
+[0..1]"];
+FindItemsByParameters385374408 -> InsuranceManagementSystem1049014452[label="insuranceSystem
+[0..1]"];
+InsuranceManagementSystem1049014452 -> AddInsuranceObligationCommand59472489[arrowhead=none];
+InsuranceManagementSystem1049014452 -> CalculateCostCommand2008285647[arrowhead=none];
+InsuranceManagementSystem1049014452 -> DisplayAllInsuranceObligationsCommand1445770138[arrowhead=none];
+InsuranceManagementSystem1049014452 -> FindItemsByParameters385374408[arrowhead=none];
+InsuranceManagementSystem1049014452 -> InsuranceObligation1049014452[label="obligations
+[0..*]"];
+InsuranceManagementSystem1049014452 -> RemoveInsuranceObligationCommand56999124[arrowhead=none];
+InsuranceManagementSystem1049014452 -> SortInsuranceItemsByRisk736068034[arrowhead=none];
+InsuranceManagementSystemTest1049014452 -> InsuranceManagementSystem1049014452[label="insuranceSystem
+[0..1]"];
+Invoker1183693704 -> AddInsuranceObligationCommand59472489[arrowhead=none];
+Invoker1183693704 -> CalculateCostCommand2008285647[arrowhead=none];
+Invoker1183693704 -> DisplayAllInsuranceObligationsCommand1445770138[arrowhead=none];
+Invoker1183693704 -> FindItemsByParameters385374408[arrowhead=none];
+Invoker1183693704 -> InsuranceManagementSystem1049014452[arrowhead=none];
+Invoker1183693704 -> InsuranceManagementSystem1049014452[label="command
+[0..1]", arrowhead=none];
+Invoker1183693704 -> RemoveInsuranceObligationCommand56999124[arrowhead=none];
+Invoker1183693704 -> SortInsuranceItemsByRisk736068034[arrowhead=none];
+RemoveInsuranceObligationCommand56999124 -> InsuranceManagementSystem1049014452[label="insuranceSystem
+[0..1]"];
+SortInsuranceItemsByRisk736068034 -> InsuranceManagementSystem1049014452[label="insuranceSystem
+[0..1]"];
+    
+}
+@enduml
