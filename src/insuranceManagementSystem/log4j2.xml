@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <SMTP name="Mail" subject="Log Event" to="fmn66vigu@mozmail.com"
+              from="kzlymu8jg@mozmail.com" smtpHost="smtp.gmail.com"
+              smtpPort="587" smtpUsername="gray74070@gmail.com" smtpPassword="24Web_war_Uk.">
+            <PatternLayout pattern="%d [%t] %-5level %logger{35} - %msg%n"/>
+        </SMTP>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="Mail"/>
+        </Root>
+    </Loggers>
+</Configuration>
